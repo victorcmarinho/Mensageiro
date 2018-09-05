@@ -7,6 +7,7 @@ import firebase from 'firebase';
 import Rotas from './src/Rotas';
 import reducers from './src/reducers';
 
+//teste
 export default class App extends React.Component {
   
   componentWillMount(){
