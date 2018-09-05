@@ -20,6 +20,7 @@ class FormLogin extends Component{
         const {email,senha} = this.props;
         this.props.autenticarUsuario({email,senha});
     }
+    
     renderBtnAcessar(){
         if(this.props.loading){
             return (

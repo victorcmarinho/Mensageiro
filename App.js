@@ -27,6 +27,7 @@ export default class App extends React.Component {
       <Provider  store={createStore(reducers,{},applyMiddleware(ReduxThunk))}>
         <Rotas/>
       </Provider>
+      
     );
   }
 }

@@ -16,6 +16,7 @@ export default props =>(
             <Scene key='adicionarContato' component={AdicionarContato} title="Adicionar Contato" hideNavBar={false}/>
         </Scene>
        
+       
     </Router>
   
 );

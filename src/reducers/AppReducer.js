@@ -22,5 +22,6 @@ export default (state = INITIAL_STATE, action) =>{
             return {...state, cadastro_resultado_inclusao: action.payload, adiciona_contato_email: '' }
         default:
             return state;
+            
     }
 }

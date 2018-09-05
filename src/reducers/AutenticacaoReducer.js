@@ -16,6 +16,7 @@ const INITIAL_STATE = {
     senha: '',
     erro: '',
     loading: false
+    
 }
 export default (state = INITIAL_STATE, action) => {
     switch(action.type){

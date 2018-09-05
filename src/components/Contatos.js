@@ -6,3 +6,4 @@ export default props => (
         <Text>Contatos</Text>
     </View>
 );
+
