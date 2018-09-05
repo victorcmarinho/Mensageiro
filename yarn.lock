@@ -626,7 +626,11 @@
 
 "@expo/vector-icons@^6.3.1":
   version "6.3.1"
+<<<<<<< HEAD
   resolved "http://registry.npmjs.org/@expo/vector-icons/-/vector-icons-6.3.1.tgz#ffb97cc2343e4a330b44ce3063ee7c8571a6a50d"
+=======
+  resolved "https://registry.yarnpkg.com/@expo/vector-icons/-/vector-icons-6.3.1.tgz#ffb97cc2343e4a330b44ce3063ee7c8571a6a50d"
+>>>>>>> da7452b0df93ba1f21f0eda98b30f60dca9414f4
   dependencies:
     lodash "^4.17.4"
     react-native-vector-icons "4.5.0"
