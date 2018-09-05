@@ -5,7 +5,8 @@ import _ from 'lodash';
 import { 
     MODIFICA_ADICIONA_CONTATO_EMAIL,
     ADICIONA_CONTATO_ERRO,
-    ADICIONA_CONTATO_SUCESSO
+    ADICIONA_CONTATO_SUCESSO,
+    LISTA_CONTATO_USUARIO
 } from './types';
 
 export const modificaAdicionaContatoEmail = texto => {
