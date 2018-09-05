@@ -5,12 +5,37 @@ import {
     TextInput,
     Button,
     StyleSheet,
-    TouchableHighlight
+    TouchableHighlight,
+    ActivityIndicator
 } from 'react-native';
 import {connect} from 'react-redux';
 import {Actions} from 'react-native-router-flux';
-
+import {
+    modificaEmail,
+    modificaSenha,
+    autenticarUsuario
+} from '../actions/AutenticacaoActions';
 class FormLogin extends Component{
+    _autenticarUsuario(){
+        const {email,senha} = this.props;
+        this.props.autenticarUsuario({email,senha});
+    }
+    renderBtnAcessar(){
+        if(this.props.loading){
+            return (
+                <ActivityIndicator size="large"/>
+            )
+
+        }
+        return (
+            <Button
+                title = "Acessar"
+                color='#115E54'
+                onPress={()=> this._autenticarUsuario()}
+            />
+        )
+        
+    }
     render(){
         return(
             <View style={styles.conteiner}>
@@ -21,8 +46,8 @@ class FormLogin extends Component{
             
             <View  style={{flex:2}}>
             
-                <TextInput value={this.props.email} style={styles.input} placeholder ='E-mail'/>
-                <TextInput value={this.props.senha} style={styles.input} placeholder ='Senha'/>
+                <TextInput value={this.props.email} onChangeText={texto => this.props.modificaEmail(texto)} style={styles.input} textContentType={'emailAddress' } keyboardType={'email-address'} placeholder ='E-mail'/>
+                <TextInput value={this.props.senha} onChangeText={texto => this.props.modificaSenha(texto)} style={styles.input} textContentType={'password'} secureTextEntry={true} placeholder ='Senha'/>
                 <View style={{flexDirection:'row',marginTop:10}}>
                     <Text style={{fontSize: 20}}>Ainda não tem cadastro? </Text>
                     <TouchableHighlight
@@ -37,12 +62,7 @@ class FormLogin extends Component{
             
             <View  style={{flex:2}}>
                 
-                <Button
-                    title = "Acessar"
-                    color='#115E54'
-
-                    onPress={()=> { Actions.formCadastro();}}
-                />
+                {this.renderBtnAcessar()}
     
             </View>
         
@@ -77,8 +97,9 @@ const styles = StyleSheet.create({
 const mapStateToProps = state =>(
     {
         email: state.AutenticacaoReducer.email,
-        senha: state.AutenticacaoReducer.senha
+        senha: state.AutenticacaoReducer.senha,
+        loading: state.AutenticacaoReducer.loading
     }
 );
 
-export default connect(mapStateToProps,null)(FormLogin);
+export default connect(mapStateToProps,{modificaEmail,modificaSenha, autenticarUsuario})(FormLogin);
